@@ -1,0 +1,41 @@
+Thanks, on va passer aux section projet, je t'envoye le code actuel attaché ci-dessus. ne pas changer le design , garder toujours le meme modèle , adpater tous les modifications aux design qui a été déjà mise en place et on travaille uniquement sur la section project modification de chaque sous section que j'ai mis en<h2>  (tu peux voir dans le code) / à l'instar de cela toujours proposer quelque de chose d'innovant correspondant au design. 
+List of project : 
+Professionnel : 
+Statut en cours 
+Development and maintenance of internal industrial maintenance management applications at Riou ocean glass Ltd 
+Technologie used : 
+Front end : HTML / CSS / JS 
+Back end : Php 
+Base de donnée : MySQL 
+
+Etude : 
+Site e-commerce Jade 
+Statut en cours
+Technologie used : 
+Front end : html css js 
+
+Student Managemnt : 
+Statut finished
+Technologie used : 
+Front : html css js 
+Back: php
+Base de donnée : MySQL  
+
+Reconnaissance faciale using api 
+Statut finished
+Technologie use : HTML CSS JS 
+
+-.-
+Create footer to reference in design 
+Footer 
+© 2025 Andy Randriamanalina. All rights reserved. 
+Icone location with my adress name (Welligton Street)
+Icone tel wth my number phone +230 5908 0945 
+Icone Email + redirecrtion link
+Icone Github + redirecrtion link
+
+Organisation design comme si un d'un coté gauche un au milieu un coté droit (Ouvert à d'autre propisition)
+Contrainte : footer doit etre vu dans toutes les sections 
+
+
+

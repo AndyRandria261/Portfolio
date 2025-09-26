@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Andy - Navigation par Sections</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="assets/css/style2.css" />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "Cvu9TqWLWSF6GO2J9",
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="#" class="logo">
+          <i class="fas fa-code"></i>
+          Andy Randria
+        </a>
+
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="#home" class="nav-link active" data-section="home">
+              <i class="fas fa-home"></i>
+              Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#skills" class="nav-link" data-section="skills">
+              <i class="fas fa-laptop-code"></i>
+              Skills
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#projects" class="nav-link" data-section="projects">
+              <i class="fas fa-project-diagram"></i>
+              Projets
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link" data-section="contact">
+              <i class="fas fa-envelope"></i>
+              Contact
+            </a>
+          </li>
+        </ul>
+
+        <a
+          href="assets/files/cv.pdf"
+          download="Andy_Randriamanalina_CV.pdf"
+          class="nav-cta"
+        >
+          Download CV
+          <i class="fas fa-download"></i>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Barre de navigation mobile -->
+    <div class="mobile-nav">
+      <div class="mobile-nav-container">
+        <a href="#home" class="mobile-nav-item active" data-section="home">
+          <i class="fas fa-home"></i>
+          <span>Accueil</span>
+        </a>
+        <a href="#skills" class="mobile-nav-item" data-section="skills">
+          <i class="fas fa-laptop-code"></i>
+          <span>Compétences</span>
+        </a>
+        <a href="#projects" class="mobile-nav-item" data-section="projects">
+          <i class="fas fa-project-diagram"></i>
+          <span>Projets</span>
+        </a>
+        <a href="#contact" class="mobile-nav-item" data-section="contact">
+          <i class="fas fa-envelope"></i>
+          <span>Contact</span>
+        </a>
+      </div>
+    </div>
+
+    <section id="home" class="hero page-section active">
+      <div class="bg-animation">
+        <div class="bg-circle circle-1"></div>
+        <div class="bg-circle circle-2"></div>
+        <div class="bg-circle circle-3"></div>
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <div class="tagline">
+              <span>Software engineer Student</span>
+            </div>
+            <h1>Andy <span class="highlight">Randriamanalina</span></h1>
+            <p class="hero-description">
+              Passionate about technology and digital innovation, I'm a Software
+              Engineering Student developing solid skills in digital project
+              management and business analysis, eager to solve real-world
+              challenges through code and strategy.
+            </p>
+            <div class="cta-buttons">
+              <a
+                href="projects"
+                onclick="showSection('projects'); event.preventDefault();"
+                class="btn btn-primary"
+              >
+                <i class="fas fa-rocket"></i> Projects
+              </a>
+              <a
+                href="#contact"
+                onclick="showSection('contact'); event.preventDefault();"
+                class="btn btn-secondary"
+              >
+                <i class="fas fa-envelope"></i> Contact me
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-image-container">
+            <div class="image-wrapper">
+              <img
+                src="assets/img/andy_profile.jpg"
+                alt="Andy Randriamanalina"
+                class="profile-image"
+              />
+
+              <div class="tech-icons">
+                <div class="tech-icon"><i class="fab fa-html5"></i></div>
+                <div class="tech-icon"><i class="fab fa-css3-alt"></i></div>
+                <div class="tech-icon"><i class="fab fa-js"></i></div>
+                <div class="tech-icon"><i class="fab fa-react"></i></div>
+                <div class="tech-icon"><i class="fab fa-python"></i></div>
+                <div class="tech-icon"><i class="fas fa-database"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="skills-section page-section">
+      <div class="container">
+        <!-- Frontend & UX -->
+        <div class="skills-category">
+          <h2 class="skills-title">Frontend & UX</h2>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fab fa-figma"></i>
+              </div>
+              <h3 class="skill-name">Figma Design</h3>
+              <div class="skill-stars">
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="skill-description">
+                UI/UX design with modern prototyping tools and design systems
+              </div>
+              <div class="skill-level">
+                <div class="level-bar" style="width: 60%"></div>
+              </div>
+              <div class="skill-info">
+                <span>Beginner</span>
+                <span>Expert</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fab fa-html5"></i>
+              </div>
+              <h3 class="skill-name">HTML/CSS</h3>
+              <div class="skill-stars">
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+              </div>
+              <div class="skill-description">
+                Semantic HTML and modern CSS with Flexbox, Grid and animations
+              </div>
+              <div class="skill-level">
+                <div class="level-bar" style="width: 80%"></div>
+              </div>
+              <div class="skill-info">
+                <span>Beginner</span>
+                <span>Expert</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-layer-group"></i>
+              </div>
+              <h3 class="skill-name">Bulma</h3>
+              <div class="skill-stars">
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="skill-description">
+                Modern CSS framework for responsive layouts and components
+              </div>
+              <div class="skill-level">
+                <div class="level-bar" style="width: 50%"></div>
+              </div>
+              <div class="skill-info">
+                <span>Beginner</span>
+                <span>Expert</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fab fa-react"></i>
+              </div>
+              <h3 class="skill-name">React</h3>
+              <div class="skill-stars">
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="skill-description">
+                Component-based development with React ecosystem
+              </div>
+              <div class="skill-level">
+                <div class="level-bar" style="width: 45%"></div>
+              </div>
+              <div class="skill-info">
+                <span>Beginner</span>
+                <span>Expert</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fab fa-js"></i>
+              </div>
+              <h3 class="skill-name">Javascript</h3>
+              <div class="skill-stars">
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="skill-description">
+                Front-end development with modern JavaScript: dynamic
+                interactions, smooth animations, and improved user experience
+              </div>
+              <div class="skill-level">
+                <div class="level-bar" style="width: 45%"></div>
+              </div>
+              <div class="skill-info">
+                <span>Beginner</span>
+                <span>Expert</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="skills-category">
+          <h2 class="skills-title">Backend</h2>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fab fa-python"></i>
+              </div>
+              <h3 class="skill-name">Python</h3>
+              <div class="skill-stars">
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="skill-description">
+                Backend development using Python
+              </div>
+              <div class="skill-level">
+                <div class="level-bar" style="width: 60%"></div>
+              </div>
+              <div class="skill-info">
+                <span>Beginner</span>
+                <span>Expert</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fab fa-java"></i>
+              </div>
+              <h3 class="skill-name">Java</h3>
+              <div class="skill-stars">
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="skill-description">
+                Object-oriented programming and application development
+              </div>
+              <div class="skill-level">
+                <div class="level-bar" style="width: 40%"></div>
+              </div>
+              <div class="skill-info">
+                <span>Beginner</span>
+                <span>Expert</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fab fa-php"></i>
+              </div>
+              <h3 class="skill-name">PHP</h3>
+              <div class="skill-stars">
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="skill-description">
+                Server-side scripting for web applications
+              </div>
+              <div class="skill-level">
+                <div class="level-bar" style="width: 65%"></div>
+              </div>
+              <div class="skill-info">
+                <span>Beginner</span>
+                <span>Expert</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Base de données -->
+        <div class="skills-category">
+          <h2 class="skills-title">Database</h2>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-database"></i>
+              </div>
+              <h3 class="skill-name">MySQL</h3>
+              <div class="skill-stars">
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="skill-description">
+                Relational database design, queries and optimization
+              </div>
+              <div class="skill-level">
+                <div class="level-bar" style="width: 80%"></div>
+              </div>
+              <div class="skill-info">
+                <span>Beginner</span>
+                <span>Expert</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Outils de collaboration -->
+        <div class="skills-category">
+          <h2 class="skills-title">Collaboration Tools</h2>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fab fa-git-alt"></i>
+              </div>
+              <h3 class="skill-name">Git</h3>
+              <div class="skill-stars">
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="skill-description">
+                Version control and team collaboration workflows
+              </div>
+              <div class="skill-level">
+                <div class="level-bar" style="width: 50%"></div>
+              </div>
+              <div class="skill-info">
+                <span>Beginner</span>
+                <span>Expert</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fab fa-github"></i>
+              </div>
+              <h3 class="skill-name">GitHub</h3>
+              <div class="skill-stars">
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star filled"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="skill-description">
+                Project hosting, code review and collaboration platform
+              </div>
+              <div class="skill-level">
+                <div class="level-bar" style="width: 50%"></div>
+              </div>
+              <div class="skill-info">
+                <span>Beginner</span>
+                <span>Expert</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ajoutez ces attributs data-project aux boutons existants dans votre HTML -->
+
+    <section id="projects" class="projects-section page-section">
+      <div class="container">
+        <div class="projects-category">
+          <h3 class="projects-title">Professional Projects</h3>
+          <div class="projects-grid">
+            <!-- Projet Professionnel 1 -->
+            <div class="project-card">
+              <div class="project-icon">
+                <i class="fas fa-industry"></i>
+              </div>
+              <h4 class="project-name">
+                Industrial Maintenance Management App
+              </h4>
+              <div class="project-status status-ongoing">In Progress</div>
+              <p class="project-description">
+                Development and maintenance of internal industrial maintenance
+                management applications at Riou ocean glass Ltd. This system
+                streamlines maintenance operations and improves efficiency.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag"><i class="fab fa-html5"></i> HTML</span>
+                <span class="tech-tag"
+                  ><i class="fab fa-css3-alt"></i> CSS</span
+                >
+                <span class="tech-tag"
+                  ><i class="fab fa-js"></i> JavaScript</span
+                >
+                <span class="tech-tag"><i class="fab fa-php"></i> PHP</span>
+                <span class="tech-tag"
+                  ><i class="fas fa-database"></i> MySQL</span
+                >
+              </div>
+              <div class="project-actions">
+                <!-- MODIFICATION ICI : Ajout de data-project -->
+                <a
+                  href="#"
+                  class="project-btn btn-details"
+                  data-project="maintenance-app"
+                >
+                  <i class="fas fa-eye"></i> View Details
+                </a>
+              </div>
+            </div>
+
+            <!-- Projet Professionnel 2 -->
+            <div class="project-card">
+              <div class="project-icon">
+                <i class="fas fa-print"></i>
+                <!-- Changé l'icône -->
+              </div>
+              <h4 class="project-name">Digital Glass Printing Web Site</h4>
+              <div class="project-status status-ongoing">In Progress</div>
+              <p class="project-description">
+                A modern website showcasing digital glass printing services with
+                interactive portfolio and client management features.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag"><i class="fab fa-html5"></i> HTML</span>
+                <span class="tech-tag"
+                  ><i class="fab fa-css3-alt"></i> CSS</span
+                >
+                <span class="tech-tag"
+                  ><i class="fab fa-js"></i> JavaScript</span
+                >
+                <span class="tech-tag"><i class="fab fa-php"></i> PHP</span>
+                <span class="tech-tag"
+                  ><i class="fas fa-database"></i> MySQL</span
+                >
+              </div>
+              <div class="project-actions">
+                <!-- MODIFICATION ICI : Ajout de data-project -->
+                <a
+                  href="#"
+                  class="project-btn btn-details"
+                  data-project="glass-printing"
+                >
+                  <i class="fas fa-eye"></i> View Details
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="projects-category">
+          <h3 class="projects-title">Academic Projects</h3>
+          <div class="projects-grid">
+            <!-- Projet Académique 1 -->
+            <div class="project-card">
+              <div class="project-icon">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+              <h4 class="project-name">Jade E-commerce Website</h4>
+              <div class="project-status status-ongoing">In Progress</div>
+              <p class="project-description">
+                An e-commerce platform for Jade featuring product listings, cart
+                functionality, and secure checkout. Designed with a focus on
+                user experience and responsive design.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag"><i class="fab fa-html5"></i> HTML</span>
+                <span class="tech-tag"
+                  ><i class="fab fa-css3-alt"></i> CSS</span
+                >
+                <span class="tech-tag"
+                  ><i class="fab fa-js"></i> JavaScript</span
+                >
+              </div>
+              <div class="project-actions">
+                <!-- MODIFICATION ICI : Ajout de data-project -->
+                <a
+                  href="#"
+                  class="project-btn btn-details"
+                  data-project="jade-ecommerce"
+                >
+                  <i class="fas fa-eye"></i> View Details
+                </a>
+                <a href="#" class="project-btn btn-code">
+                  <i class="fab fa-github"></i> Source Code
+                </a>
+              </div>
+            </div>
+
+            <!-- Projet Académique 2 -->
+            <div class="project-card">
+              <div class="project-icon">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <h4 class="project-name">Student Management System</h4>
+              <div class="project-status status-finished">Completed</div>
+              <p class="project-description">
+                A comprehensive student management system for academic
+                institutions. Features include student registration, course
+                management, attendance tracking, and grade reporting.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag"><i class="fab fa-html5"></i> HTML</span>
+                <span class="tech-tag"
+                  ><i class="fab fa-css3-alt"></i> CSS</span
+                >
+                <span class="tech-tag"
+                  ><i class="fab fa-js"></i> JavaScript</span
+                >
+                <span class="tech-tag"><i class="fab fa-php"></i> PHP</span>
+                <span class="tech-tag"
+                  ><i class="fas fa-database"></i> MySQL</span
+                >
+              </div>
+              <div class="project-actions">
+                <!-- MODIFICATION ICI : Ajout de data-project -->
+                <a
+                  href="#"
+                  class="project-btn btn-details"
+                  data-project="student-management"
+                >
+                  <i class="fas fa-eye"></i> View Details
+                </a>
+                <a href="#" class="project-btn btn-code">
+                  <i class="fab fa-github"></i> Source Code
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="project-modal-overlay" id="projectModal">
+      <div class="project-modal">
+        <div class="modal-header">
+          <h3 class="modal-title" id="modalTitle">Project Preview</h3>
+          <button class="modal-close" id="modalClose">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <div class="carousel-container">
+          <div class="carousel-wrapper" id="carouselWrapper"></div>
+
+          <button class="carousel-nav prev" id="prevBtn">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="carousel-nav next" id="nextBtn">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+
+          <div class="carousel-indicators" id="carouselIndicators"></div>
+          <div class="carousel-progress" id="carouselProgress"></div>
+        </div>
+      </div>
+    </div>
+    <div class="project-modal-overlay" id="projectModal">
+      <div class="project-modal">
+        <div class="modal-header">
+          <h3 class="modal-title" id="modalTitle">Project Preview</h3>
+          <button class="modal-close" id="modalClose">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <div class="carousel-container">
+          <div class="carousel-wrapper" id="carouselWrapper"></div>
+
+          <button class="carousel-nav prev" id="prevBtn">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="carousel-nav next" id="nextBtn">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+
+          <div class="carousel-indicators" id="carouselIndicators"></div>
+          <div class="carousel-progress" id="carouselProgress"></div>
+        </div>
+      </div>
+    </div>
+
+    <section id="contact" class="section page-section">
+      <h2>Contact</h2>
+      <div class="section-content">
+        <form class="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Your email" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" placeholder="Subject" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              placeholder="Your message..."
+              required
+            ></textarea>
+          </div>
+          <button type="submit" onclick="sendMail()" class="submit-btn">
+            Send
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="portfolio-footer">
+      <div class="footer-container">
+        <!-- Section Copyright -->
+        <div class="footer-section">
+          <h3 class="footer-title">Copyright</h3>
+          <p class="copyright">
+            © 2025 Andy Randriamanalina.<br />
+            All rights reserved.
+          </p>
+        </div>
+
+        <!-- Section Contact -->
+        <div class="footer-section">
+          <h3 class="footer-title">Contact</h3>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span class="contact-text">Moka Telfair, Mauritius</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span class="contact-text">+230 5908 0945</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span class="contact-text">andyrandriamanalina@gmail.com</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section Réseaux sociaux -->
+        <div class="footer-section">
+          <h3 class="footer-title">Connect</h3>
+          <div class="social-links">
+            <a href="andyrandriamanalina@gmail.com" class="social-link">
+              <div class="social-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <span class="social-label">Email</span>
+            </a>
+            <a
+              href="https://github.com/andy-dev"
+              target="_blank"
+              class="social-link"
+            >
+              <div class="social-icon">
+                <i class="fab fa-github"></i>
+              </div>
+              <span class="social-label">GitHub</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/andy-randriamanalina/"
+              target="_blank"
+              class="social-link"
+            >
+              <div class="social-icon">
+                <i class="fab fa-linkedin"></i>
+              </div>
+              <span class="social-label">LinkedIn</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="controller.js"></script>
+  </body>
+</html>
