@@ -53,6 +53,17 @@ document.addEventListener("DOMContentLoaded", function () {
       showSection(sectionId);
     });
   });
+
+  // Contact form handling - NOUVELLE SECTION
+  const contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    contactForm.addEventListener("submit", sendMail);
+  }
+
+  // Initialiser le carousel à la fin
+  setTimeout(() => {
+    new ProjectCarousel();
+  }, 500); // Petit délai pour s'assurer que tout est chargé
 });
 
 // MOVE showSection FUNCTION OUTSIDE - Make it globally accessible
@@ -86,37 +97,87 @@ function showSection(sectionId) {
   });
 }
 
-function sendMail(event) {
+// Function SendEmail
+async function sendMail(event) {
   event.preventDefault();
 
+  const form = event.target;
+  const submitBtn = form.querySelector(".submit-btn");
+  const btnText = submitBtn.querySelector(".btn-text");
+  const btnLoading = submitBtn.querySelector(".btn-loading");
+
+  // Show loading state
+  submitBtn.disabled = true;
+  if (btnText && btnLoading) {
+    btnText.style.display = "none";
+    btnLoading.style.display = "inline";
+  } else {
+    submitBtn.textContent = "Sending...";
+  }
+
+  const formData = new FormData(form);
   const data = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    subject: document.getElementById("subject").value,
-    message: document.getElementById("message").value,
+    name: formData.get("name") || document.getElementById("name").value,
+    email: formData.get("email") || document.getElementById("email").value,
+    subject:
+      formData.get("subject") || document.getElementById("subject").value,
+    message:
+      formData.get("message") || document.getElementById("message").value,
   };
 
-  fetch("/api/contact", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  })
-    .then((res) => res.json())
-    .then((response) => {
-      if (response.success) {
-        alert("✅ Thank you! Your message has been sent successfully.");
-        document.querySelector(".contact-form").reset();
-      } else {
-        alert("❌ Oops! Something went wrong. Please try again.");
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      alert("⚠️ Unable to send your message at the moment.");
+  try {
+    console.log("Sending data:", data); // Debug log
+
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
     });
+
+    console.log("Response status:", response.status); // Debug log
+    console.log("Response headers:", response.headers); // Debug log
+
+    const result = await response.json();
+    console.log("Response data:", result); // Debug log
+
+    if (response.ok && result.success) {
+      alert("✅ Thank you! Your message has been sent successfully.");
+      form.reset();
+    } else {
+      throw new Error(
+        result.message || `HTTP ${response.status}: Failed to send message`
+      );
+    }
+  } catch (error) {
+    console.error("Complete error:", error);
+    console.error("Error name:", error.name);
+    console.error("Error message:", error.message);
+
+    // More specific error messages
+    if (error.name === "TypeError" && error.message.includes("fetch")) {
+      alert("⚠️ Network error. Please check your connection and try again.");
+    } else if (error.message.includes("404")) {
+      alert("⚠️ API endpoint not found. Please contact the administrator.");
+    } else if (error.message.includes("500")) {
+      alert("⚠️ Server error. Please try again later.");
+    } else {
+      alert("⚠️ Unable to send your message: " + error.message);
+    }
+  } finally {
+    // Reset button state
+    submitBtn.disabled = false;
+    if (btnText && btnLoading) {
+      btnText.style.display = "inline";
+      btnLoading.style.display = "none";
+    } else {
+      submitBtn.textContent = "Send";
+    }
+  }
 }
 
-// PROJECT CAROUSEL CLASS
+// PROJECT CAROUSEL CLASS (inchangée)
 class ProjectCarousel {
   constructor() {
     this.currentSlide = 0;
@@ -444,11 +505,3 @@ class ProjectCarousel {
     this.progressBar.style.width = "0%";
   }
 }
-
-// Initialiser le carousel quand le DOM est prêt
-document.addEventListener("DOMContentLoaded", function () {
-  // Initialiser le carousel à la fin
-  setTimeout(() => {
-    new ProjectCarousel();
-  }, 500); // Petit délai pour s'assurer que tout est chargé
-});
