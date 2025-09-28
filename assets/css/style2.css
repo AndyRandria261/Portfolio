@@ -164,7 +164,6 @@ body {
 
 .hero-content {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   gap: 4rem;
   width: 100%;
@@ -176,6 +175,7 @@ body {
   flex: 1;
   min-width: 300px;
   animation: fadeInUp 1s ease-out;
+  order: 2;
 }
 
 .tagline {
@@ -264,6 +264,8 @@ h1 {
   display: flex;
   justify-content: center;
   position: relative;
+  order: 1;
+  margin-bottom: 2rem;
 }
 
 .image-wrapper {
@@ -451,6 +453,10 @@ h1 {
     align-items: center;
   }
 
+  .hero-image-container {
+    margin-bottom: 2rem;
+  }
+
   .tagline::after {
     display: none;
   }
@@ -471,11 +477,22 @@ h1 {
   }
 
   .hero {
-    padding-top: 100px;
+    padding-top: 140px;
+  }
+
+  .mobile-nav {
+    padding-bottom: 100px;
+  }
+
+  .hero-image-container {
+    margin-bottom: 2rem;
+    margin-top: 6rem;
+    order: 1;
   }
 
   .hero-text {
-    padding-top: 2rem;
+    padding-top: 1rem;
+    order: 2;
   }
 
   .image-wrapper {

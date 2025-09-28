@@ -13,32 +13,28 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Fonction pour changer de section
-  function showSection(sectionId) {
-    // Masquer toutes les sections
-    document.querySelectorAll(".page-section").forEach((section) => {
-      section.classList.remove("active");
+  // Animation pour les liens de navigation au survol
+  document.querySelectorAll(".nav-link").forEach((link) => {
+    link.addEventListener("mouseenter", () => {
+      link.style.transform = "translateY(-3px)";
+      link.style.transition = "transform 0.3s ease";
     });
 
-    // Afficher la section sélectionnée
-    const targetSection = document.getElementById(sectionId);
-    if (targetSection) {
-      targetSection.classList.add("active");
-    }
-
-    // Fermer le menu mobile s'il est ouvert
-    if (navMenu.classList.contains("active")) {
-      navMenu.classList.remove("active");
-      hamburger.querySelector("i").classList.add("fa-bars");
-      hamburger.querySelector("i").classList.remove("fa-times");
-    }
-
-    // Faire défiler vers le haut de la section
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
+    link.addEventListener("mouseleave", () => {
+      link.style.transform = "translateY(0)";
     });
-  }
+  });
+
+  window.addEventListener("scroll", function () {
+    const navbar = document.querySelector(".navbar");
+    if (window.scrollY > 50) {
+      navbar.style.padding = "10px 0";
+      navbar.style.background = "rgba(10, 25, 47, 0.98)";
+    } else {
+      navbar.style.padding = "20px 0";
+      navbar.style.background = "rgba(10, 25, 47, 0.9)";
+    }
+  });
 
   // Gestion des clics sur les liens de navigation
   document.querySelectorAll(".nav-link, .mobile-nav-item").forEach((link) => {
@@ -57,48 +53,70 @@ document.addEventListener("DOMContentLoaded", function () {
       showSection(sectionId);
     });
   });
-
-  // Animation pour les liens de navigation au survol
-  document.querySelectorAll(".nav-link").forEach((link) => {
-    link.addEventListener("mouseenter", () => {
-      link.style.transform = "translateY(-3px)";
-      link.style.transition = "transform 0.3s ease";
-    });
-
-    link.addEventListener("mouseleave", () => {
-      link.style.transform = "translateY(0)";
-    });
-  });
-  window.addEventListener("scroll", function () {
-    const navbar = document.querySelector(".navbar");
-    if (window.scrollY > 50) {
-      navbar.style.padding = "10px 0";
-      navbar.style.background = "rgba(10, 25, 47, 0.98)";
-    } else {
-      navbar.style.padding = "20px 0";
-      navbar.style.background = "rgba(10, 25, 47, 0.9)";
-    }
-  });
 });
 
-//Emailjs
-function sendMail() {
-  let parms = {
+// MOVE showSection FUNCTION OUTSIDE - Make it globally accessible
+function showSection(sectionId) {
+  // Masquer toutes les sections
+  document.querySelectorAll(".page-section").forEach((section) => {
+    section.classList.remove("active");
+  });
+
+  // Afficher la section sélectionnée
+  const targetSection = document.getElementById(sectionId);
+  if (targetSection) {
+    targetSection.classList.add("active");
+  }
+
+  // Update navigation active state
+  document.querySelectorAll(".nav-link, .mobile-nav-item").forEach((el) => {
+    el.classList.remove("active");
+  });
+
+  // Find and activate the corresponding navigation link
+  const navLink = document.querySelector(`[data-section="${sectionId}"]`);
+  if (navLink) {
+    navLink.classList.add("active");
+  }
+
+  // Faire défiler vers le haut de la section
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}
+
+function sendMail(event) {
+  event.preventDefault();
+
+  const data = {
     name: document.getElementById("name").value,
     email: document.getElementById("email").value,
     subject: document.getElementById("subject").value,
     message: document.getElementById("message").value,
   };
 
-  emailjs
-    .send("service_lwbz2hc", "template_g44eowe", parms)
-    .then(alert("Email Sent"));
+  fetch("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  })
+    .then((res) => res.json())
+    .then((response) => {
+      if (response.success) {
+        alert("✅ Thank you! Your message has been sent successfully.");
+        document.querySelector(".contact-form").reset();
+      } else {
+        alert("❌ Oops! Something went wrong. Please try again.");
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      alert("⚠️ Unable to send your message at the moment.");
+    });
 }
 
-// =====================================
-// PROJECT CAROUSEL CLASS - À ajouter à la fin de controller.js
-// =====================================
-
+// PROJECT CAROUSEL CLASS
 class ProjectCarousel {
   constructor() {
     this.currentSlide = 0;
@@ -429,8 +447,6 @@ class ProjectCarousel {
 
 // Initialiser le carousel quand le DOM est prêt
 document.addEventListener("DOMContentLoaded", function () {
-  // Vos autres scripts existants...
-
   // Initialiser le carousel à la fin
   setTimeout(() => {
     new ProjectCarousel();
