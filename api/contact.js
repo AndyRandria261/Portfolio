@@ -80,8 +80,8 @@ export default async function handler(req, res) {
     // Envoyer l'email avec le template
     const emailPayload = {
       to: "andyrandriamanalina@gmail.com",
-      from: "andyrandriamanalina@gmail.com", // Doit être vérifié dans SendGrid
-      templateId: "d-d44968b9f8aa4904ad3997825b69e86",
+      from: "andyrandriamanalina@gmail.com",
+      templateId: "d-d44968b9f8aa4904ad3997825b69e868",
       dynamicTemplateData: templateData,
       replyTo: email.trim(),
     };
