@@ -77,36 +77,38 @@ export default async function handler(req, res) {
 
     console.log("Template data:", templateData);
 
-    // Envoyer l'email avec le template
-    const emailPayload = {
-      to: "andyrandriamanalina@gmail.com",
+    // Email to User (Confirmation)
+    const userEmailPayload = {
+      to: email.trim(),
       from: "andyrandriamanalina@gmail.com",
       templateId: "d-d44968b9f8aa4904ad3997825b69e868",
-      dynamicTemplateData: templateData,
-      replyTo: email.trim(),
+      dynamicTemplateData: {
+        name: name.trim(),
+        message: "Thank you for your message! We’ll get back to you soon.",
+      },
+      replyTo: "andyrandriamanalina@gmail.com",
     };
 
-    console.log("Email payload:", {
-      to: emailPayload.to,
-      from: emailPayload.from,
-      templateId: emailPayload.templateId,
-      replyTo: emailPayload.replyTo,
-      dynamicTemplateData: emailPayload.dynamicTemplateData,
-    });
+    // Email to Owner (Notification)
+    const ownerEmailPayload = {
+      to: "andyrandriamanalina@gmail.com",
+      from: "andyrandriamanalina@gmail.com", // Verified sender
+      subject: `New Contact Form Submission: ${subject || "No Subject"}`,
+      text: `Name: ${name}\nEmail: ${email}\nSubject: ${
+        subject || "N/A"
+      }\nMessage: ${message}`,
+    };
 
-    await sendgrid.send(emailPayload);
-
-    console.log("Email sent successfully with template!");
+    // Send both emails
+    await sendgrid.send(userEmailPayload);
+    await sendgrid.send(ownerEmailPayload);
 
     res.status(200).json({
       success: true,
       message: "Email sent successfully",
     });
   } catch (error) {
-    console.error("=== SENDGRID ERROR ===");
-    console.error("Error type:", error.constructor.name);
-    console.error("Error message:", error.message);
-    console.error("Error code:", error.code);
+    console.error("SendGrid error:", error);
 
     // Log détaillé pour les erreurs SendGrid
     if (error.response) {
