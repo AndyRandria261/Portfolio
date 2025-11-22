@@ -248,57 +248,49 @@ class ProjectCarousel {
   }
 
   loadProjectData() {
-    // Données des projets - Remplacez par vos vraies images
+    // Données des projets
     this.projectData = {
       "maintenance-app": {
         title: "Industrial Maintenance Management App",
         slides: [
           {
-            image:
-              "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=400&fit=crop",
-            description:
-              "Dashboard overview showing real-time maintenance status and equipment health monitoring.",
+            image: "/../assets/img/LoginPage.png",
+            description: "Secure login interface with role-based access.",
           },
           {
-            image:
-              "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
+            image: "/../assets/img/DashboardHead.png",
             description:
-              "Interactive charts displaying maintenance schedules and performance metrics.",
+              "Dashboard for the Head of Maintenance with real-time insights and quick actions.",
           },
           {
-            image:
-              "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
+            image: "/../assets/img/TechLists.png",
             description:
-              "Mobile-responsive interface for field technicians to update maintenance records.",
+              "Complete list of technicians with search and management options.",
           },
           {
-            image:
-              "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop",
+            image: "/../assets/img/AddTech.png",
             description:
-              "Equipment database with detailed specifications and maintenance history.",
-          },
-        ],
-      },
-      "glass-printing": {
-        title: "Digital Glass Printing Web Site",
-        slides: [
-          {
-            image:
-              "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&h=400&fit=crop",
-            description:
-              "Modern homepage design showcasing glass printing services and capabilities.",
+              "Form to add a new technician with assigned roles and machine permissions.",
           },
           {
-            image:
-              "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&h=400&fit=crop",
+            image: "/../assets/img/EditTech.png",
             description:
-              "Product gallery featuring various glass printing samples and customization options.",
+              "Technician details editing page for updating roles, status, and information.",
           },
           {
-            image:
-              "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop",
+            image: "/../assets/img/ListMachine.png",
             description:
-              "Client portal for order tracking and project management.",
+              "Overview of all machines including status, category, and assigned technicians.",
+          },
+          {
+            image: "/../assets/img/AddMachine.png",
+            description:
+              "Machine registration form for adding new industrial equipment.",
+          },
+          {
+            image: "/../assets/img/EditMachine.png",
+            description:
+              "Machine editing interface for updating specifications and maintenance data.",
           },
         ],
       },
@@ -306,22 +298,56 @@ class ProjectCarousel {
         title: "Jade E-commerce Website",
         slides: [
           {
-            image:
-              "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop",
-            description:
-              "Clean and modern product catalog with advanced filtering options.",
+            image: "/../assets/img/LoginForm.png",
+            description: "Login page with secure authentication.",
           },
           {
-            image:
-              "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=400&fit=crop",
-            description:
-              "Secure shopping cart and checkout process with multiple payment options.",
+            image: "/../assets/img/RegisterForm.png",
+            description: "User registration form with real-time validation.",
           },
           {
-            image:
-              "https://images.unsplash.com/photo-1556742393-d75f468bfcb0?w=800&h=400&fit=crop",
+            image: "/../assets/img/mainPage",
+            description: "Main homepage showcasing products and categories.",
+          },
+          {
+            image: "/../assets/img/Footer.png",
+            description: "Website footer with quick links and company details.",
+          },
+          {
+            image: "/../assets/img/ProductForm",
             description:
-              "Responsive design optimized for mobile shopping experience.",
+              "Product creation form for adding new items to the store.",
+          },
+          {
+            image: "/../assets/img/ProductOverplay.png",
+            description: "Product preview overlay inspired by Shein's UI.",
+          },
+          {
+            image: "/../assets/img/TagPage.png",
+            description:
+              "Tag management page used to organize and filter items.",
+          },
+          {
+            image: "/../assets/img/TaxForm2.png",
+            description: "Tax configuration form for pricing and invoicing.",
+          },
+          {
+            image: "/../assets/img/PenalitiesForm.png",
+            description:
+              "Penalties setup form for late payments or violations.",
+          },
+          {
+            image: "/../assets/img/ComplaintsForm.png",
+            description: "Complaint submission form to handle customer issues.",
+          },
+          {
+            image: "/../assets/img/ComplaintsForm.png",
+            description: "Complaint form (duplicate slide).",
+          },
+          {
+            image: "/../assets/img/ContactForm.png",
+            description:
+              "Contact form allowing users to reach customer support.",
           },
         ],
       },
